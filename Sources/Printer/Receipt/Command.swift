@@ -154,6 +154,7 @@ public enum Command {
     public enum PageMovement: PrintableCommand {
         case partialCut
         case fullCut
+        case cashDrawer
         case ejector
         case print
         case printAndFeed(lines: UInt8)
@@ -164,6 +165,8 @@ public enum Command {
                 return [27, 105]
             case .fullCut:
                 return [27, 109]
+            case .cashDrawer:
+                return [27, 112, 0, 128, 255]
             case .ejector:
                 debugPrint("⚠️ TODO://")
                 return []
